@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scroll bars */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black; /* Fallback color */
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Make sure the video is behind everything else */
+    object-fit: cover;
+}
+
+@keyframes fadeInAndFlash {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+video {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -2;
+	filter: blur(2px) brightness(75%);
+	pointer-events: none;
+}
+#clickToPlay {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 64px;
+    cursor: default;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with 20% opacity */
+}
+
+#clickToPlay span {
+    opacity: 0;
+    animation: fadeInAndFlash 5s ease-in-out infinite;
+}
+
+h1 {
+    color: white;
+    z-index: 1; /* Ensure the text is above the video */
+}
+#sparkle {
+    color: rgb(240, 240, 240); 
+    background-image: url("../images/whitesparkle.gif");
+}
+.bg-style {
+    border-color: var(--border-color);
+    border-radius: .75rem;
+    border-width: 1px;
+    background-color: var(--box-color);
+    --tw-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+    --tw-backdrop-blur: blur(40px);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+}
+
+.border-color {
+    border-color: var(--border-color)
+}
+.glow {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the tooltip element */
+    left: 50%;
+    margin-left: -40px; /* Use half of the width (80/2 = 40), to center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.hr-theme, hr {
+    height: 1px;
+    border-width: 1px;
+    border-style: none;
+}
+.hr-theme {
+    background: -webkit-linear-gradient(left, transparent, var(--theme-color), transparent);
+}
+
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
